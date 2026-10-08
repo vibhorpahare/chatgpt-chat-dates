@@ -1,15 +1,15 @@
 # ChatGPT Chat Finder
 
-ChatGPT's own sidebar search is unreliable for digging up an old conversation by date. This is a tiny Chrome extension that lists **all** your ChatGPT conversations, grouped by date, with instant title search — and a **Refresh** button to pull in anything new.
+ChatGPT's UI never shows you what time you had a conversation. This is a tiny Chrome extension that lists **all** your ChatGPT conversations grouped by date, with the exact time next to each title — and a **Refresh** button to pull in anything new.
 
 Everything runs locally in your browser using your own logged-in ChatGPT session. Nothing is sent to any third-party server; the chat list is cached only in your browser's local extension storage.
 
 ## Features
 
-- **Search** every conversation title instantly as you type
+- Every chat's exact **time** shown next to its title
 - Grouped by **create date**, newest first
 - **Refresh button** — re-fetches the latest chats from ChatGPT on demand (uses whichever `chatgpt.com` tab you already have open, or opens one quietly in the background if needed)
-- Click any row to open that conversation directly
+- Click any row to open that conversation directly in a new tab
 - Local cache persists between popup opens, so you're not re-fetching every time
 
 ## Install
@@ -30,8 +30,8 @@ Not on the Chrome Web Store — load it as an unpacked extension:
 1. Make sure you're logged into [chatgpt.com](https://chatgpt.com) in some tab (or just let the extension open one for you)
 2. Click the extension icon
 3. Hit **Refresh** to sync your chat list
-4. Type in the search box to filter by title, or scroll the date-grouped list
-5. Click any chat to open it
+4. Scroll the date-grouped list — each row shows the time the chat started
+5. Click any chat to open it in a new tab
 
 ## How it works
 

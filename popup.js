@@ -1,5 +1,4 @@
 const refreshBtn = document.getElementById('refreshBtn');
-const searchBox = document.getElementById('searchBox');
 const statusEl = document.getElementById('status');
 const listEl = document.getElementById('list');
 const emptyEl = document.getElementById('empty');
@@ -28,21 +27,11 @@ function fmtTime(ts) {
 }
 
 function render() {
-  const query = searchBox.value.trim().toLowerCase();
-  const filtered = query
-    ? conversations.filter((c) => c.title.toLowerCase().includes(query))
-    : conversations;
-
   listEl.innerHTML = '';
-  emptyEl.style.display = filtered.length ? 'none' : 'block';
-  if (!filtered.length) {
-    emptyEl.textContent = conversations.length
-      ? 'No chats match that search.'
-      : 'No chats yet. Open chatgpt.com and hit Refresh.';
-    return;
-  }
+  emptyEl.style.display = conversations.length ? 'none' : 'block';
+  if (!conversations.length) return;
 
-  const sorted = [...filtered].sort((a, b) => b.create_time - a.create_time);
+  const sorted = [...conversations].sort((a, b) => b.create_time - a.create_time);
 
   let lastDateKey = null;
   for (const c of sorted) {
@@ -58,16 +47,16 @@ function render() {
     const row = document.createElement('div');
     row.className = 'row';
 
+    const time = document.createElement('div');
+    time.className = 'time';
+    time.textContent = fmtTime(c.create_time);
+    row.appendChild(time);
+
     const title = document.createElement('div');
     title.className = 'title';
     title.textContent = c.title || '(untitled)';
     title.title = c.title || '(untitled)';
     row.appendChild(title);
-
-    const time = document.createElement('div');
-    time.className = 'time';
-    time.textContent = fmtTime(c.create_time);
-    row.appendChild(time);
 
     row.addEventListener('click', () => {
       chrome.tabs.create({ url: `https://chatgpt.com/c/${c.id}` });
@@ -76,8 +65,6 @@ function render() {
     listEl.appendChild(row);
   }
 }
-
-searchBox.addEventListener('input', render);
 
 async function loadCache() {
   const { conversations: cached, lastSynced } = await chrome.storage.local.get([

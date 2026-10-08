@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "ChatGPT Chat Finder",
   "version": "1.0",
-  "description": "Search all your ChatGPT conversations by title or date, with a one-click refresh to pull the latest chats.",
+  "description": "See the exact time of every ChatGPT chat, grouped by date, with one-click refresh and click-to-open.",
   "action": {
     "default_popup": "popup.html",
     "default_title": "ChatGPT Chat Finder"

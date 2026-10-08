@@ -32,15 +32,6 @@
     background: #9ab8f0;
     cursor: default;
   }
-  #searchBox {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 7px 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 13px;
-    margin-bottom: 6px;
-  }
   #status {
     font-size: 11px;
     color: #888;
@@ -76,17 +67,19 @@
   .row:hover {
     background: #f3f4f6;
   }
+  .row .time {
+    flex: none;
+    font-size: 12px;
+    font-weight: 600;
+    color: #3b82f6;
+    min-width: 46px;
+  }
   .row .title {
     flex: 1;
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-  .row .time {
-    flex: none;
-    font-size: 11px;
-    color: #999;
   }
   #empty {
     font-size: 13px;
@@ -102,7 +95,6 @@
     ChatGPT Chat Finder
     <button id="refreshBtn">Refresh</button>
   </h1>
-  <input type="text" id="searchBox" placeholder="Search by title..." />
   <div id="status"></div>
   <div id="empty">No chats yet. Open chatgpt.com and hit Refresh.</div>
   <div id="list"></div>
