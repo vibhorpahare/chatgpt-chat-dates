@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Chat Finder",
+  "version": "1.0",
+  "description": "Search all your ChatGPT conversations by title or date, with a one-click refresh to pull the latest chats.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ChatGPT Chat Finder"
+  },
+  "permissions": ["storage", "scripting", "tabs"],
+  "host_permissions": ["https://chatgpt.com/*"]
+}

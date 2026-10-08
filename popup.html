@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  body {
+    width: 380px;
+    max-height: 560px;
+    font-family: -apple-system, system-ui, sans-serif;
+    padding: 12px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 14px;
+    margin: 0 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #refreshBtn {
+    border: none;
+    background: #3b82f6;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  #refreshBtn:disabled {
+    background: #9ab8f0;
+    cursor: default;
+  }
+  #searchBox {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  #status {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 8px;
+    min-height: 14px;
+  }
+  #status.error {
+    color: #c0392b;
+  }
+  #list {
+    overflow-y: auto;
+    flex: 1;
+  }
+  .dateHeader {
+    font-size: 11px;
+    font-weight: 600;
+    color: #666;
+    margin: 10px 0 4px;
+    position: sticky;
+    top: 0;
+    background: white;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 4px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .row:hover {
+    background: #f3f4f6;
+  }
+  .row .title {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .row .time {
+    flex: none;
+    font-size: 11px;
+    color: #999;
+  }
+  #empty {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    margin-top: 30px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <h1>
+    ChatGPT Chat Finder
+    <button id="refreshBtn">Refresh</button>
+  </h1>
+  <input type="text" id="searchBox" placeholder="Search by title..." />
+  <div id="status"></div>
+  <div id="empty">No chats yet. Open chatgpt.com and hit Refresh.</div>
+  <div id="list"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
