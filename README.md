@@ -1,4 +1,4 @@
-# ChatGPT Chat Finder
+# ChatGPT Chat Dates
 
 ChatGPT's UI never shows you what time you had a conversation. This is a tiny Chrome extension that lists **all** your ChatGPT conversations grouped by date, with the exact time next to each title — and a **Refresh** button to pull in anything new.
 
@@ -18,11 +18,11 @@ Not on the Chrome Web Store — load it as an unpacked extension:
 
 1. Clone this repo
    ```bash
-   git clone https://github.com/vibhorpahare/chatgpt-chat-finder.git
+   git clone https://github.com/vibhorpahare/chatgpt-chat-dates.git
    ```
 2. Open `chrome://extensions` in Chrome
 3. Enable **Developer mode** (top-right toggle)
-4. Click **Load unpacked** and select the `chatgpt-chat-finder` folder
+4. Click **Load unpacked** and select the `chatgpt-chat-dates` folder
 5. Pin the extension icon to your toolbar
 
 ## Usage

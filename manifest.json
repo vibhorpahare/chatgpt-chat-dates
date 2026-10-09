@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "ChatGPT Chat Finder",
+  "name": "ChatGPT Chat Dates",
   "version": "1.0",
   "description": "See the exact time of every ChatGPT chat, grouped by date, with one-click refresh and click-to-open.",
   "action": {
     "default_popup": "popup.html",
-    "default_title": "ChatGPT Chat Finder"
+    "default_title": "ChatGPT Chat Dates"
   },
   "permissions": ["storage", "scripting", "tabs"],
   "host_permissions": ["https://chatgpt.com/*"]
