@@ -11,7 +11,8 @@ function setStatus(text, isError) {
 }
 
 function fmtDateHeader(ts) {
-  return new Date(ts * 1000).toLocaleDateString(undefined, {
+  if (!ts) return 'Unknown date';
+  return new Date(ts).toLocaleDateString(undefined, {
     weekday: 'short',
     day: '2-digit',
     month: 'short',
@@ -20,7 +21,8 @@ function fmtDateHeader(ts) {
 }
 
 function fmtTime(ts) {
-  return new Date(ts * 1000).toLocaleTimeString(undefined, {
+  if (!ts) return '--:--';
+  return new Date(ts).toLocaleTimeString(undefined, {
     hour: '2-digit',
     minute: '2-digit',
   });
@@ -31,7 +33,9 @@ function render() {
   emptyEl.style.display = conversations.length ? 'none' : 'block';
   if (!conversations.length) return;
 
-  const sorted = [...conversations].sort((a, b) => b.create_time - a.create_time);
+  const sorted = [...conversations].sort(
+    (a, b) => new Date(b.create_time) - new Date(a.create_time)
+  );
 
   let lastDateKey = null;
   for (const c of sorted) {
@@ -106,7 +110,7 @@ function fetchAllConversations() {
     return all.map((c) => ({
       id: c.id,
       title: c.title || '(untitled)',
-      create_time: c.create_time,
+      create_time: c.create_time || c.update_time || null,
       update_time: c.update_time,
     }));
   })();
